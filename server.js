@@ -12,7 +12,9 @@ app.use(express.static(path.join(__dirname, "/frontend/build")));
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
+const uri =
+  process.env.ATLAS_URI ||
+  "mongodb+srv://dbUser:chatafisha123@cluster0.6pxonhv.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once("open", () => {
