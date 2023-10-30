@@ -154,7 +154,7 @@ const Contact = () => {
 
       try {
         await axios
-          .post("/nfts/create", nftData, {
+          .post("http://localhost:5000/nfts/create", nftData, {
             headers: {
               "Content-Type": "multipart/form-data",
             },
