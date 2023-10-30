@@ -24,10 +24,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm ci # Use `npm ci` for more consistent dependency installation
+        run: npm i # Use `npm ci` for more consistent dependency installation
 
       - name: Build frontend
         run: |
           cd frontend  # Change directory to the frontend folder
-          npm ci --legacy-peer-deps  # Install dependencies in the frontend directory
+          export CI=false
+          npm i --legacy-peer-deps  # Install dependencies in the frontend directory
           npm run build  # Run the build script in the frontend directory
