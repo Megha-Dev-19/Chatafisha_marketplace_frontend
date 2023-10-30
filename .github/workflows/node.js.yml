@@ -15,12 +15,19 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2 # Use actions/checkout@v2 for the latest version
+
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2 # Use actions/setup-node@v2 for the latest version
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm i
-      - run: cd frontend
-      - run: npm i --legacy-peer-deps
-      - run: npm run build
+
+      - name: Install dependencies
+        run: npm ci # Use `npm ci` for more consistent dependency installation
+
+      - name: Build frontend
+        run: |
+          cd frontend  # Change directory to the frontend folder
+          npm ci --legacy-peer-deps  # Install dependencies in the frontend directory
+          npm run build  # Run the build script in the frontend directory
