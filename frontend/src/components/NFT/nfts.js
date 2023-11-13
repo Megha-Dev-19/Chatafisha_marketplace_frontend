@@ -90,13 +90,9 @@ const NFTS = () => {
                   <div className={styles["image-container"]}>
                     <img
                       className={styles.image}
-                      src={require(`../../images/${item.image}`).default}
+                      src={item.image}
                       alt={`Image ${item.code}`}
-                      onClick={() =>
-                        window.open(
-                          require(`../../images/${item.image}`).default
-                        )
-                      }
+                      onClick={() => window.open(item.image)}
                     />
                   </div>
                 </td>

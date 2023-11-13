@@ -3,16 +3,26 @@ let Nft = require("../models/nft.model");
 const multer = require("multer");
 const fs = require("fs");
 const mongoose = require("mongoose");
+const path = require("path");
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
-const fileStorageEngine = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "/frontend/src/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "--" + file.originalname);
+cloudinary.config({
+  cloud_name: "dd1ane39w",
+  api_key: "693683955188647",
+  api_secret: "BzGmcNYpYF05bag2kTIaU8GfzEE",
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "YourFolderName", // Specify the folder name in Cloudinary
+    public_id: (req, file) => Date.now() + "-" + file.originalname, // Use Date.now() to get a unique filename
+    // Optionally, you can specify the format (e.g., jpg, png) if you want to convert the image format
+    format: "jpg",
   },
 });
-const upload = multer({ storage: fileStorageEngine });
+const upload = multer({ storage: storage });
 
 router.route("/").get((req, res) => {
   Nft.find()
@@ -33,7 +43,7 @@ router.post("/create", upload.single("image"), async (req, res) => {
       date,
       status,
     } = req.body;
-    const imagePath = req.file.filename; // Multer adds "path" property to req.file
+    const imagePath = req.file.path; // Multer adds "path" property to req.file
 
     // Create a new Nft instance with the uploaded image path
     const newNft = new Nft({
