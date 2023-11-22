@@ -59,7 +59,7 @@ function Create() {
           //     console.log(err);
           //   });
           await axios
-            .put(`http://localhost:5000/nfts/update-status/${values.code}`)
+            .put(`/nfts/update-status/${values.code}`)
             .then((res) => {
               console.log(res.data);
             })

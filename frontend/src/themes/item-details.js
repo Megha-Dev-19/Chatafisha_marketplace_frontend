@@ -26,7 +26,7 @@ const ItemDetails = () => {
       window.location.href = "/transfer-msg/succeeded";
     }
     axios
-      .get(`http://localhost:5000/nfts/find/${itemData.token_id}`)
+      .get(`/nfts/find/${itemData.token_id}`)
       .then((res) => {
         setNft(res.data);
         // console.log(nft);

@@ -14,7 +14,7 @@ const NFTS = () => {
   useEffect(() => {
     const getColls = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/nfts/");
+        const response = await axios.get("/nfts/");
         setCollections(response.data);
         console.log(response);
       } catch (error) {
