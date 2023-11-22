@@ -167,10 +167,10 @@ const Contact = () => {
         console.log(err);
       }
 
-      //sendEmail(formData);
+      sendEmail(formData);
 
-      //actions.resetForm();
-      //window.location = "/claim-nft";
+      actions.resetForm();
+      window.location = "/claim-nft";
     },
   });
   const form = useRef();
