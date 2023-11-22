@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
+var https = require("https");
+const fs = require("fs");
 
 require("dotenv").config();
 const app = express();
@@ -32,6 +34,27 @@ const nftsRouter = require("./routes/nfts");
 app.use("/nfts", nftsRouter);
 // app.use("/users", usersRouter);
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
-});
+if (process.env.TYPE && process.env.TYPE == "Prod") {
+  const options = {
+    key: fs.readFileSync(
+      "/etc/letsencrypt/live/marketplace.chatafisha.com/privkey.pem"
+    ),
+    cert: fs.readFileSync(
+      "/etc/letsencrypt/live/marketplace.chatafisha.com/fullchain.pem"
+    ),
+  };
+  // app.listen(process.env.PORT || 8000, () => {
+  // console.log("Serveur à l'écoute on ");
+  // });
+  console.log({ server: "sever" });
+
+  const server = https.createServer(options, app);
+
+  server.listen(port);
+} else {
+  const { createServer } = require("http");
+  const httpServer = createServer(app);
+  httpServer.listen(port, process.env.ALWAYSDATA_HTTP_ID, () => {
+    console.log(`App is running at ${port}`);
+  });
+}
