@@ -154,7 +154,7 @@ const Contact = () => {
 
       try {
         await axios
-          .post("http://localhost:5000/nfts/create", nftData, {
+          .post("/nfts/create", nftData, {
             headers: {
               "Content-Type": "multipart/form-data",
             },
@@ -167,10 +167,10 @@ const Contact = () => {
         console.log(err);
       }
 
-      sendEmail(formData);
+      //sendEmail(formData);
 
-      actions.resetForm();
-      window.location = "/claim-nft";
+      //actions.resetForm();
+      //window.location = "/claim-nft";
     },
   });
   const form = useRef();
