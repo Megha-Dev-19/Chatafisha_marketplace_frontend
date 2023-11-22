@@ -154,11 +154,15 @@ const Contact = () => {
 
       try {
         await axios
-          .post("https:///nfts/create", nftData, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          })
+          .post(
+            "https://marketplace.chatafisha.com:5000/nfts/create",
+            nftData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          )
           .then((res) => console.log(res.data))
           .catch((err) => {
             console.log(err);

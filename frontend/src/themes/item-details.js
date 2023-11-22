@@ -26,7 +26,9 @@ const ItemDetails = () => {
       window.location.href = "/transfer-msg/succeeded";
     }
     axios
-      .get(`/nfts/find/${itemData.token_id}`)
+      .get(
+        `https://marketplace.chatafisha.com:5000/nfts/find/${itemData.token_id}`
+      )
       .then((res) => {
         setNft(res.data);
         // console.log(nft);

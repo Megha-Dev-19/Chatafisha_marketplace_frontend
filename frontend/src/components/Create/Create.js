@@ -59,7 +59,9 @@ function Create() {
           //     console.log(err);
           //   });
           await axios
-            .put(`/nfts/update-status/${values.code}`)
+            .put(
+              `https://marketplace.chatafisha.com:5000/nfts/update-status/${values.code}`
+            )
             .then((res) => {
               console.log(res.data);
             })
