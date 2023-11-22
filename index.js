@@ -36,12 +36,8 @@ app.use("/nfts", nftsRouter);
 
 if (process.env.TYPE && process.env.TYPE == "Prod") {
   const options = {
-    key: fs.readFileSync(
-      "/etc/letsencrypt/live/marketplace.chatafisha.com/privkey.pem"
-    ),
-    cert: fs.readFileSync(
-      "/etc/letsencrypt/live/marketplace.chatafisha.com/fullchain.pem"
-    ),
+    key: fs.readFileSync("/var/www/marketplace.chatafisha.com/privkey1.pem"),
+    cert: fs.readFileSync("/var/www/marketplace.chatafisha.com/fullchain1.pem"),
   };
   // app.listen(process.env.PORT || 8000, () => {
   // console.log("Serveur à l'écoute on ");
