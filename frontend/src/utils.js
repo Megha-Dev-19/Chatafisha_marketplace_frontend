@@ -22,7 +22,7 @@ export async function initContract() {
 
   window.chatafisha_nft_marketplace = await new Contract(
     window.walletConnection.account(),
-    "chatafisha_nft_marketplace.testnet",
+    "chatafisha_marketplace.near",
     {
       viewMethods: ["get_marketplacedata", "get_special_data"],
       changeMethods: ["mint_nft", "transfer_nft"],
@@ -31,7 +31,7 @@ export async function initContract() {
 
   window.chatafisha_nft = await new Contract(
     window.walletConnection.account(),
-    "chatafisha_nft.testnet",
+    "chatafisha_nft.near",
     {
       viewMethods: ["nft_tokens_for_owner", "nft_token"],
       changeMethods: ["nft_transfer", "nft_mint", "nft_tokens"],
