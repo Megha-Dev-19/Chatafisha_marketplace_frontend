@@ -6,6 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import styles from "./styles.module.css";
 import { accountId } from "../../utils";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [isOtherChecked, setIsOtherChecked] = useState(false);
@@ -152,6 +154,8 @@ const Contact = () => {
         status: "pending",
       };
 
+      await sendEmail(formData);
+
       try {
         await axios
           .post(
@@ -163,23 +167,27 @@ const Contact = () => {
               },
             }
           )
-          .then((res) => console.log(res.data))
+          .then((res) => {
+            console.log(res.data);
+            toast.success("Data submitted successfully!");
+          })
           .catch((err) => {
             console.log(err);
+            toast.error("Data submission failed!");
           });
       } catch (err) {
         console.log(err);
+        toast.error("An error occurred!");
       }
 
-      sendEmail(formData);
-
       actions.resetForm();
-      window.location = "/claim-nft";
+      // window.location = "/claim-nft";
     },
   });
   const form = useRef();
   return (
     <section className="author-area">
+      <ToastContainer position="top-right" />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-8 col-lg-12">

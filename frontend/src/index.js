@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
 import { initContract } from "./utils";
+import "./polyfills";
 
 const children = (
   <React.StrictMode>
