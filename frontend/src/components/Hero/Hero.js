@@ -22,7 +22,8 @@ class Hero extends Component {
 
   render() {
     const createButton =
-      accountId().accountId === "chatafisha_nft_marketplace.testnet" ? (
+      accountId().accountId === "chatafisha_nft_marketplace.testnet" ||
+      accountId().accountId === "chatafisha_marketplace.near" ? (
         <a className="btn btn-bordered-white" href="/create">
           <i className="icon-note mr-2" />
           {this.state.data.btn_2}
