@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 app.use(express.static(path.join(__dirname, "/frontend/build")));
 
 var corsOptions = {
-  origin: "https://marketplace.chatafisha.com/",
+  origin: "https://marketplace.chatafisha.com",
   methods: ["GET", "POST", "PUT"], // Allow only GET and POST requests
 };
 
