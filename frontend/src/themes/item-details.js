@@ -119,10 +119,7 @@ const ItemDetails = () => {
                       <li>
                         <strong>Image Proof : </strong>
                         <div className="item-thumb text-center">
-                          <img
-                            src={require(`../images/${nft.image}`).default}
-                            alt=""
-                          />
+                          <img src={nft.image} alt="" />
                         </div>
                       </li>
                     </ul>
