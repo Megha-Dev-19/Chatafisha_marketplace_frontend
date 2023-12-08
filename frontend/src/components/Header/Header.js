@@ -152,10 +152,15 @@ const Header = () => {
                 className="btn ml-lg-auto"
                 style={{
                   backgroundColor: "#B3E9A2",
-                  color: "rgba(56, 45, 33, 0.7)", // Dark text color for light backgrounds
-                  // You can add more styles as needed
+                  color: "rgba(56, 45, 33, 0.7)",
+                  maxWidth: "200px", // Truncating long text
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  cursor: "pointer", // Change cursor to pointer on hover
                 }}
                 onClick={() => login()}
+                title={accountId ? accountId().accountId : "Wallet connect"} // Tooltip for full text
               >
                 <i className="icon-wallet mr-md-2" />
                 {accountId ? accountId().accountId : "Wallet connect"}

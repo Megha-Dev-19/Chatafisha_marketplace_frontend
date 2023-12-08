@@ -3,12 +3,18 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: fixed; /* Fixed table layout */
 }
 
 .th, .td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    word-wrap: break-word; /* Breaks long words */
+    max-width: 150px; /* Adjust as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .th {
@@ -22,18 +28,27 @@
 .tr:hover {
     background-color: #ddd;
 }
+
+/* Additional styling for hover effect to show full text */
+.td:hover {
+    overflow: visible;
+    white-space: normal;
+    height: auto; /* Adjust height as content expands */
+    background-color: #ddd; /* Optional: Change background on hover */
+}
+
 .image {
-    width: 100px; /* Set the desired width for the images */
-    height: 100px; /* Set the desired height for the images */
-    object-fit: cover; /* Ensure the image covers the specified dimensions */
-cursor: pointer; /* Change cursor to pointer on hover */
-    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .image:hover {
-    transform: scale(1.5); /* Scale the image to 1.5 times its original size on hover */
+    transform: scale(1.5);
 }
-/* styles.module.css */
+
 /* ... (other styles) ... */
 
 .container {
