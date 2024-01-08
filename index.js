@@ -33,8 +33,9 @@ const nftsRouter = require("./routes/nfts");
 
 app.use("/nfts", nftsRouter);
 // app.use("/users", usersRouter);
+const Type = "Prod";
 
-if (process.env.TYPE && process.env.TYPE == "Prod") {
+if (Type == "Prod") {
   const options = {
     key: fs.readFileSync("/var/www/marketplace.chatafisha.com/privkey1.pem"),
     cert: fs.readFileSync("/var/www/marketplace.chatafisha.com/fullchain1.pem"),
