@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2 # Use actions/checkout@v2 for the latest version
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.6.1 # Use actions/setup-node@v2 for the latest version
+        uses: actions/setup-node@v2 # Use actions/setup-node@v2 for the latest version
         with:
           node-version: ${{ matrix.node-version }}
 
