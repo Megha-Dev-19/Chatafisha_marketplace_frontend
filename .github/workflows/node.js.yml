@@ -11,7 +11,8 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [16.x]
+        # changed to 16 node version to avoid breaking changes by Machuche, 06-02-2024 : 10:32
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
