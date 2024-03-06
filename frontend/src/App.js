@@ -7,7 +7,7 @@ import MyRouts from "./routers/routes";
 function App() {
   return (
     <div>
-      <MyRouts />
+    this is the home screen
     </div>
   );
 }
