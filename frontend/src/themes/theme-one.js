@@ -20,48 +20,31 @@ const ThemeOne = () => {
   const [tokens, setTokens] = useState([]);
   const [isComponentVisible, setComponentVisibility] = useState(false);
   const [collectionData, setCollectionData] = useState([]);
-  useEffect(() => {
-    getNfts();
-  }, []);
+  // useEffect(() => {
+  //   getNfts();
+  // }, []);
 
-  useEffect(() => {
-    getMCollection(accountId().accountId).then((res) => {
-      console.log(res);
-      setCollectionData(res);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getMCollection(accountId().accountId).then((res) => {
+  //     console.log(res);
+  //     setCollectionData(res);
+  //   });
+  // }, []);
 
-  const getNfts = async () => {
-    getTokens()
-      .then((res) => {
-        console.log("Tokens fetched:", res);
-        setTokens(res);
-      })
-      .catch((error) => {
-        console.error("Error fetching tokens:", error);
-      });
-    setComponentVisibility(!isComponentVisible);
-  };
+  // const getNfts = async () => {
+  //   getTokens()
+  //     .then((res) => {
+  //       console.log("Tokens fetched:", res);
+  //       setTokens(res);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching tokens:", error);
+  //     });
+  //   setComponentVisibility(!isComponentVisible);
+  // };
   return (
     <div className="main">
-      <ExportAccountSelectorContextProvider>
-        <Header />
-      </ExportAccountSelectorContextProvider>
-      <Hero />
-      {/* <Auctions /> */}
-      {/* <TopSeller /> */}
-      {collectionData.length !== 0 ? (
-        <Collections collection={collectionData} />
-      ) : (
-        <div></div>
-      )}
-
-      <ExploreThree tokens={tokens} />
-      {/* <Work /> */}
-      <Footer />
-      <ModalSearch />
-      <ModalMenu />
-      <Scrollup />
+     hello 
     </div>
   );
 };
