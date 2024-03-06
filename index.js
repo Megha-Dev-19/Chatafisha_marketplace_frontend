@@ -33,25 +33,10 @@ const nftsRouter = require("./routes/nfts");
 
 app.use("/nfts", nftsRouter);
 // app.use("/users", usersRouter);
-const Type = "Prod";
 
-if (Type == "Prod") {
-  const options = {
-    key: fs.readFileSync("/var/www/marketplace.chatafisha.com/privkey1.pem"),
-    cert: fs.readFileSync("/var/www/marketplace.chatafisha.com/fullchain1.pem"),
-  };
-  // app.listen(process.env.PORT || 8000, () => {
-  // console.log("Serveur à l'écoute on ");
-  // });
-  console.log({ server: "sever" });
-
-  const server = https.createServer(options, app);
-
-  server.listen(port);
-} else {
   const { createServer } = require("http");
   const httpServer = createServer(app);
   httpServer.listen(port, process.env.ALWAYSDATA_HTTP_ID, () => {
     console.log(`App is running at ${port}`);
   });
-}
+
